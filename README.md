@@ -1,5 +1,7 @@
 # NLI
 
+Code for paper "Evaluating the Scalability and Adversarial Generalization of GRPO-Trained NLI Models" (arxiv 2504.18376).
+
 ## 1. Datasets
 
 * **SNLI**: `snli`
