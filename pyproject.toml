@@ -1,0 +1,40 @@
+[project]
+name = "nli"
+version = "0.1.0"
+description = "NLI training and experimentation"
+readme = "README.md"
+requires-python = "==3.11.9"
+dependencies = [
+  "pandas==2.1.2",
+  "scikit-learn==1.3.2",
+  "seaborn==0.13.1",
+  "jupyterlab==4.0.8",
+  "torch==2.6.0",
+  "pytorch-lightning==2.1.0",
+  "torchmetrics==1.2.0",
+  "python-dotenv==1.0.1",
+  "datasets==3.3.0",
+  "transformers==4.50.3",
+  "accelerate==1.3.0",
+  "trl==0.16.0",
+  "wandb==0.19.5",
+  "ninja==1.11.1.4",
+  # "mpi4py==4.0.3",
+  "peft==0.15.0",
+  "hydra-core==1.3.2",
+  "vllm==0.8.2",
+  "optimum==1.24.0",
+  "bitsandbytes==0.45.3",
+  "autoawq==0.2.8",
+  "flash-attn",
+]
+
+[tool.uv]
+no-build-isolation-package = ["autoawq"]
+# Force transformers to stay at your desired version despite autoawq's internal limits
+override-dependencies = [
+  "transformers==4.50.3"
+]
+
+[tool.uv.sources]
+flash-attn = { url = "https://github.com/mjun0812/flash-attention-prebuild-wheels/releases/download/v0.7.16/flash_attn-2.8.3+cu124torch2.6-cp311-cp311-linux_x86_64.whl" }

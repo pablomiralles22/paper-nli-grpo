@@ -1,0 +1,47 @@
+model_id: "Qwen/Qwen2.5-0.5B-Instruct"
+data_path: "anli"
+train_split: "train_r3"
+eval_split: "dev_r3"
+run_name: ???
+use_checkpoint: false
+prompt_config: "configs/prompts/label_only.yaml"
+output_dir: "out/train/sft"
+
+lora_config:
+  r: 64
+  lora_alpha: 64
+  lora_dropout: 0.0
+  target_modules: "all-linear"
+
+trainer_config:
+  num_train_epochs: 1
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 16
+  
+  save_steps: 500
+  save_total_limit: 1
+  logging_steps: 10
+  learning_rate: 5.e-5
+  weight_decay: 0.01
+  fp16: true
+  bf16: false
+  max_grad_norm: 1.0
+  warmup_steps: 50
+  optim: "paged_adamw_8bit"
+  gradient_checkpointing: true
+  torch_empty_cache_steps: 1
+  report_to: "none"
+  packing: true
+  # use_liger_kernel: true
+  
+  dataset_text_field: "text" # SFTTrainer needs this or a formatting function
+
+  model_init_kwargs:
+    device_map: auto
+    torch_dtype: float16
+    attn_implementation: flash_attention_2
+    use_cache: false
+
+hydra:
+  run:
+    dir: ./out/hydra/sft/${now:%Y-%m-%d}/${now:%H-%M-%S}

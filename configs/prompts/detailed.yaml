@@ -1,0 +1,18 @@
+prompt: |
+  You are given a Natural Language Inference task. Determine the relationship between the premise and hypothesis.
+
+  Premise: {premise}
+  Hypothesis: {hypothesis}
+
+  Think step-by-step, following this structure:
+  1. Comprehend: Restate the premise and hypothesis in your own words.
+  2. Break down the hypothesis in its different elements, one by one.
+  3. Evaluate each element of the hypothesis one by one. Can the element be derived directly from the premise? Does it contradict an element in the premise?
+  4. Provide your final answer based on the previous analysis (entailment, contradiction, or neutral).
+
+  Put the final answer at the end, with the format "<answer>entailment/contradiction/neutral</answer>".
+response: |
+  {explanation}
+  <answer>{prediction}</answer>
+self_verify: "{explanation} Wait,"
+label_template: "<answer>{label}</answer>"

@@ -1,0 +1,18 @@
+system_prompt: |
+  Respond in the following format:
+  <think>...</think>
+  <answer>contradiction/entailment/neutral</answer>
+prompt: |
+  You are given a Natural Language Inference (NLI) task. You are given a premise and a hypothesis, and you need to determine whether the hypothesis is a contradiction, entailment, or neutral given the premise.
+  Premise: {premise}
+  Hypothesis: {hypothesis}
+  Given the premise, is the hypothesis a contradiction, entailment, or neutral? Think step-by-step.
+  Use the following format for your response:
+  <think>...</think>
+  <answer>contradiction/entailment/neutral</answer>
+response: |
+  <think>{explanation}</think>
+  <answer>{prediction}</answer>
+self_verify: "<think>{explanation} Wait,"
+label_template: "<answer>{label}</answer>"
+format_regex: "<think>(.*?)</think>\\s*<answer>(.*?)</answer>"

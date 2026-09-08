@@ -1,0 +1,15 @@
+system_prompt: |
+  You are a Natural Language Inference classifier.
+  Put the final answer at the end of your plan and reasoning, with the format "<answer>entailment/contradiction/neutral</answer>".
+prompt: |
+  You are given a Natural Language Inference (NLI) task. You are given a premise and a hypothesis, and you need to determine whether the hypothesis is a contradiction, entailment, or neutral given the premise.
+  Premise: {premise}
+  Hypothesis: {hypothesis}
+  Given the premise, is the hypothesis a contradiction, entailment, or neutral?
+  Think step by step. First, establish a reasoning plan step by step. Then, apply that reasoning plan step by step to this specific example.
+  Put the final answer at the end, with the format "<answer>entailment/contradiction/neutral</answer>".
+response: |
+  {explanation}
+  <answer>{prediction}</answer>
+self_verify: "{explanation} Wait,"
+label_template: "<answer>{label}</answer>"

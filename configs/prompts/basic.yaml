@@ -1,0 +1,10 @@
+prompt: |
+  You are given a Natural Language Inference (NLI) task. You are given a premise and a hypothesis, and you need to determine whether the hypothesis is a contradiction, entailment, or neutral given the premise.
+  Premise: {premise}
+  Hypothesis: {hypothesis}
+  Given the premise, is the hypothesis a contradiction, entailment, or neutral? Think step by step. Put the final answer at the end, with the format "<answer>entailment/contradiction/neutral</answer>".
+response: |
+  {explanation}
+  <answer>{prediction}</answer>
+self_verify: "{explanation} Wait,"
+label_template: "<answer>{label}</answer>"

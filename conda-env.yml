@@ -1,0 +1,35 @@
+name: nli_v3
+
+channels:
+  # - nvidia
+  # - pytorch
+  - conda-forge
+
+dependencies:
+  - python=3.11.9
+  - conda-forge::pandas=2.1.2
+  - conda-forge::scikit-learn=1.3.2
+  - conda-forge::seaborn=0.13.1
+  - conda-forge::jupyterlab=4.0.8
+  - pytorch::pytorch==2.5.1  # Actually 2.6.0 with pip
+  - pytorch::pytorch-cuda
+  - conda-forge::pytorch-lightning=2.1.0
+  - conda-forge::torchmetrics=1.2.0
+  - conda-forge::python-dotenv=1.0.1
+  - conda-forge::datasets=3.3.0
+  - conda-forge::transformers=4.50.3
+  - conda-forge::accelerate=1.3.0
+  - conda-forge::trl=0.16.0
+  # - conda-forge::deepspeed=0.16.3
+  - conda-forge::wandb=0.19.5
+  - nvidia/label/cuda-12.4.0::cuda
+  - conda-forge::ninja=1.11.1.4
+  - conda-forge::mpi4py==4.0.3
+  - conda-forge::peft==0.15.0
+  - conda-forge::autoawq==0.2.8
+  - conda-forge::hydra-core==1.3.2
+  - pip:
+    - vllm==0.8.2
+    - flash-attn==2.7.4
+    - optimum==1.24.0
+    - bitsandbytes==0.45.3
